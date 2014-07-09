@@ -1,0 +1,65 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username":"Cliko"
+        },
+        {
+            "id": "2",
+            "username": "Bim"
+        },
+        {
+            "id": "3",
+            "username": "Tran"
+        }
+    ],
+    "movies": [
+        {
+            "id": "1",
+            "title":"Titanic",
+            "description":"Film de romance",
+            "genre":"Romance"
+        },
+        {
+            "id": "2",
+            "title": "Taken",
+            "description":"Film de combat",
+            "genre":"Combat"
+        },
+        {
+            "id": "3",
+            "title": "H2G2",
+            "description":"Meilleur film au monde",
+            "genre":"SF"
+        }
+    ],
+    "liaisons": [
+        {
+            "id": "1",
+            "user_id": "1",
+            "user_movie": "1",
+            "like":"1",
+            "dislike":"0",
+            "watched":"1",
+            "watchlist":"0"
+        },
+        {
+            "id": "2",
+            "user_id": "2",
+            "user_movie": "3",
+            "like":"0",
+            "dislike":"1",
+            "watched":"1",
+            "watchlist":"0"
+        },
+        {
+            "id": "3",
+            "user_id": "1",
+            "user_movie": "2",
+            "like":"0",
+            "dislike":"0",
+            "watched":"0",
+            "watchlist":"1"
+        }
+    ]
+}
