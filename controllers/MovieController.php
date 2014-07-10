@@ -8,7 +8,7 @@ class MovieController{
     }
 
     public function get($id){
-        $sql = "SELECT title,cover,genre FROM  movies where id =".$id."";
+        $sql = "SELECT id,title,cover,genre FROM  movies where id =".$id."";
         $data = array();
         if( $results = $this->mysqli->query($sql)){
             while( $row = $results->fetch_array(MYSQLI_ASSOC) ){

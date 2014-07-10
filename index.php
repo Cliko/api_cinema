@@ -10,6 +10,10 @@ require("controllers/UsersController.php");
 require("controllers/UserController.php");
 require("controllers/LiaisonsController.php");
 require("controllers/LiaisonController.php");
+require("controllers/FollowController.php");
+require("controllers/FollowsController.php");
+require("controllers/FollowersController.php");
+require("controllers/SearchController.php");
 
 
 Toro::serve(array(
@@ -19,5 +23,10 @@ Toro::serve(array(
     "/users/:number" => "UserController",
     "/users/:number/:string" => "LiaisonsController",
     "/users/:number/:string/:number" => "LiaisonController",
+    "/search" => "SearchController",
+    "/users/:id/follow" => "FollowController",
+    "/users/:id/follow/:id" => "FollowsController",
+    "/users/:id/followers" => "FollowersController",
 ));
+
 ?>

@@ -7,11 +7,24 @@ class UserController{
     }
 
 	public function get($id){
-        $sql = "SELECT username FROM  users WHERE id=".$id."";
+        $sql = "SELECT id, username FROM  users WHERE id=".$id."";
         $data = array();
         if( $results = $this->mysqli->query($sql)){
             while( $row = $results->fetch_array(MYSQLI_ASSOC) ){
                 $data[] = $row;
+            }
+        }
+        if($data){
+            $liaisons = array('likes','dislikes','watched','watchlist');
+            foreach($liaisons as $liaison){
+            $sql = "SELECT ".$liaison." FROM  liaisons WHERE ".$liaison." = 1 AND id = ".$id." ;";
+            $count = array();
+                if( $results = $this->mysqli->query($sql)){
+                    while( $row = $results->fetch_array(MYSQLI_ASSOC) ){
+                        $count[] = $row;
+                    }
+                }
+                $data[0][$liaison]= count($count);
             }
         }
         API::status(200);

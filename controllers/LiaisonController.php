@@ -15,18 +15,16 @@ class LiaisonController{
                 $data[] = $row;
             }
         }
-        API::status(200);
-        API::response($data);
         if($string == "likes"){
             if (!empty($data)){
-                $sql = "UPDATE `liaisons` SET `like` = 1, dislike = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `likes` = 1, dislikes = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
             }else{
                 $sql = "INSERT INTO
                             `liaisons`
                         (
                             `user_id`,
                             `movie_id`,
-                            `like`
+                            `likes`
                         ) VALUES (
                             '".$user_id."',
                             '".$movie_id."',
@@ -35,7 +33,7 @@ class LiaisonController{
             }
         }elseif($string == "dislikes"){
             if (!empty($data)){
-                $sql = "UPDATE `liaisons` SET `dislike` = 1, `like` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `dislikes` = 1, `likes` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
             }else{
                 $sql = "INSERT INTO
                             `liaisons`
@@ -51,7 +49,7 @@ class LiaisonController{
             }
         }elseif($string == "watched"){
             if (!empty($data)){
-                $sql = "UPDATE `liaisons` SET `watched` = 1 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `watched` = 1, `watchlist` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
             }else{
                 $sql = "INSERT INTO
                             `liaisons`
@@ -67,7 +65,7 @@ class LiaisonController{
             }
         }elseif($string == "watchlist"){
             if (!empty($data)){
-                $sql = "UPDATE `liaisons` SET `watchlist` = 1 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `watchlist` = 1, `watched` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
             }else{
                 $sql = "INSERT INTO
                             `liaisons`
@@ -88,10 +86,10 @@ class LiaisonController{
     public function delete($user_id,$string,$movie_id){
 
         if($string == "likes"){
-                $sql = "UPDATE `liaisons` SET `like` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `likes` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
 
         }elseif($string == "dislikes"){
-                $sql = "UPDATE `liaisons` SET `dislike` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
+                $sql = "UPDATE `liaisons` SET `dislikes` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";
 
         }elseif($string == "watched"){
                 $sql = "UPDATE `liaisons` SET `watched` = 0 WHERE user_id = ".$user_id." AND movie_id =".$movie_id.";";

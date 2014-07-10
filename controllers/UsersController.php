@@ -7,7 +7,7 @@ class UsersController{
     }
 
 	public function get(){
-        $sql = "SELECT username FROM  users";
+        $sql = "SELECT id, username FROM  users";
         $data = array();
         if( $results = $this->mysqli->query($sql)){
             while( $row = $results->fetch_array(MYSQLI_ASSOC) ){
@@ -18,16 +18,18 @@ class UsersController{
 		API::response($data);
 	}
     public function post(){
-        $username = $_POST["username"];
-        $sql = "INSERT INTO
+        if(isset($_POST["username"])){$username = $_POST["username"];}
+        if(isset($username)){
+            $sql = "INSERT INTO
 						`users`
 					(
 						`username`
 					) VALUES (
 						'" . $username .  "'
 					);";
-        $this->mysqli->query( $sql );
-        return array( 'id' => $this->mysqli->insert_id);
+            $this->mysqli->query( $sql );
+            return array( 'id' => $this->mysqli->insert_id);
+        }
     }
 
 
