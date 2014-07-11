@@ -14,19 +14,21 @@ require("controllers/FollowController.php");
 require("controllers/FollowsController.php");
 require("controllers/FollowersController.php");
 require("controllers/SearchController.php");
+require("controllers/GenresController.php");
 
 
 Toro::serve(array(
-    "/movies" => "MoviesController",
-    "/movies/:number" => "MovieController",
-    "/users" => "UsersController",
-    "/users/:number" => "UserController",
-    "/users/:number/:string" => "LiaisonsController",
-    "/users/:number/:string/:number" => "LiaisonController",
-    "/search" => "SearchController",
-    "/users/:id/follow" => "FollowController",
-    "/users/:id/follow/:id" => "FollowsController",
-    "/users/:id/followers" => "FollowersController",
+    "/v1/movies" => "MoviesController",
+    "/v1/movies/:number" => "MovieController",
+    "/v1/users" => "UsersController",
+    "/v1/users/:number" => "UserController",
+    "/v1/users/:number/:string" => "LiaisonsController",
+    "/v1/users/:number/:string/:number" => "LiaisonController",
+    "/v1/search" => "SearchController",
+    "/v1/users/:id/follow" => "FollowController",
+    "/v1/users/:id/follow/:id" => "FollowsController",
+    "/v1/users/:id/followers" => "FollowersController",
+    "/v1/genres" => "GenresController",
 ));
 
 ?>
