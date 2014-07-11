@@ -7,6 +7,7 @@ class SearchController{
     }*/
 
 	public function get(){
+        echo $_SERVER['REQUEST_URI'];
         echo 'réussi';
         exit;
 	}
